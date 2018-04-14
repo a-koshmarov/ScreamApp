@@ -5,3 +5,5 @@ Useful application that tracks whether you are afk. Using machine vision algorit
 - OpenCv
 - NumPy
 - Playsound
+---
+![alt text](bif_alert.bmp)
