@@ -13,6 +13,7 @@ cv2.namedWindow("Histogram")
 cv2.moveWindow("Histogram", 480, 350)
 font = cv2.cv2.FONT_HERSHEY_SIMPLEX
 
+
 # Initializing counters for b/w ratio
 img_counter = 0
 img_ratio = [0, 0]
@@ -67,11 +68,11 @@ while True:
         img_counter = 0
         if img_ratio[0] > img_ratio[1]:
             with open("out.txt", "w") as f:
-                f.write('0')
+                f.write('0 1')
             print("No person")
         else:
             with open("out.txt", "w") as f:
-                f.write('1')
+                f.write('1 1')
             print("Yes person")
         img_ratio = [0, 0]
 
@@ -84,5 +85,7 @@ while True:
 
     time.sleep(1)
 
+with open("out.txt", "w") as f:
+    f.write('1 0')
 cam.release()
 cv2.destroyAllWindows()

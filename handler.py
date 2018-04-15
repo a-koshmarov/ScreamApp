@@ -6,10 +6,19 @@ import cv2
 img = cv2.imread('bif_alert.bmp')
 prev = -1
 
+# Switching camera state to <on>
+with open("out.txt", "w") as f:
+    f.write('1 1')
+
 # Check the current state
 while True:
     with open("out.txt", "r") as f:
-        num = int(f.readline().strip())
+        num, window = map(int, f.readline().split())
+        print("{} {}".format(num, window))
+        
+        if not window:
+            break
+
         # If state changes
         if prev != num:
             # If state changes from 1 to 0
@@ -23,4 +32,4 @@ while True:
                         cv2.destroyAllWindows()
                         break
             prev = num
-    time.sleep(5)
+    time.sleep(1)
